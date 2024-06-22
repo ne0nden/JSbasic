@@ -29,7 +29,7 @@ function exchange(sum, sourceСurrency, targetCurrency) {
             break;
     }
 }
-console.log(exchange(100, 'RUB', 'EUR'))
+console.log(exchange(100, 'RUB', 'EUR'));
 
 
 
