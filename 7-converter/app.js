@@ -5,13 +5,10 @@ function exchange(sum, sourceСurrency, targetCurrency) {
         switch (sourceСurrency) {
             case 'USD':
                 return sum * USD;
-                break;
             case 'EUR':
                 return sum * EUR;
-                break;
             case 'RUB':
                 return sum;
-                break;
             default:
                 return null;
         }

@@ -1,21 +1,23 @@
 function sort(array) {
-    let n = array.length;
+    let newArray = array.slice();
+    let n = newArray.length;
+
     for (let i = 0; i < n - 1; i++) {
         for (let j = 0; j < n - 1 - i; j++) {
-            if (array[j] > array[j + 1]) {
-                let temp = array[j];
-                array[j] = array[j + 1];
-                array[j + 1] = temp;
+            if (newArray[j] > newArray[j + 1]) {
+                let temp = newArray[j];
+                newArray[j] = newArray[j + 1];
+                newArray[j + 1] = temp;
             }
         }
     }
-    return array;
+    return newArray;
 }
 
 let numbers = [1, 40, -5, 10, 0];
 let sortedNumbers = sort(numbers);
 console.log('Исходный массив', numbers);
 console.log('Массив отсортированный по возрастанию', sortedNumbers);
-console.log('Массив отсортированный по убыванию', sortedNumbers.reverse());
+console.log('Массив отсортированный по убыванию', sortedNumbers.slice().reverse());
 
 
