@@ -13,6 +13,6 @@ function algorithmLuhn(card) {
     for (el in card) {
         res = res + card[el];
     }
-    return res;
+    return res % 10 === 0;
 }
 console.log(algorithmLuhn(card));
