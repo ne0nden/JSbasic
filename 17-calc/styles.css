@@ -1,0 +1,118 @@
+.button {
+	box-sizing: border-box;
+	color: white;
+	border: 1px solid rgba(212, 212, 212, 0.05);
+	border-radius: 13px;
+	height: 56px;
+	font-size: 30px;
+	line-height: 21px;
+	outline: none;
+	box-shadow: none;
+	flex-grow: 1;
+	overflow: hidden;
+	width: 56px;
+}
+
+.button-background {
+	background: rgba(255, 255, 255, 0.05);
+}
+
+.button:hover {
+	background: rgba(255, 255, 255, 0.091);
+}
+
+
+.button-active {
+	background: #6c38cc;
+}
+
+.button-active:hover {
+	background: #844fe6;
+}
+
+.input {
+	box-sizing: border-box;
+	padding: 15px 16px;
+	color: white;
+	border: 1px solid rgba(212, 212, 212, 0.05);
+	background: rgba(255, 255, 255, 0.05);
+	border-radius: 10px;
+	height: 56px;
+	font-size: 18px;
+	line-height: 21px;
+	outline: none;
+	box-shadow: none;
+	flex-grow: 1;
+	overflow: hidden;
+}
+
+
+.inputs {
+	display: flex;
+	gap: 5px;
+	margin-bottom: 5px;
+}
+
+.buttons {
+	display: flex;
+	gap: 5px;
+	margin-bottom: 5px;
+}
+
+.calculator {
+	max-width: 239px;
+	margin: 0 auto;
+}
+
+.enterButton {
+	box-sizing: border-box;
+	color: white;
+	border: 1px solid rgba(212, 212, 212, 0.05);
+	border-radius: 10px;
+	background-color: #6c38cc;
+	height: 56px;
+	font-size: 30px;
+	line-height: 21px;
+	outline: none;
+	box-shadow: none;
+	flex-grow: 1;
+	overflow: hidden;
+	width: 100%;
+	margin-bottom: 5px;
+}
+
+.enterButton:hover {
+	background-color: #844fe6;
+}
+
+.answerText {
+	padding: 15px 16px;
+	box-sizing: border-box;
+	color: white;
+	height: 56px;
+	font-size: 30px;
+	line-height: 21px;
+	outline: none;
+	box-shadow: none;
+	flex-grow: 1;
+	overflow: hidden;
+	width: 100%;
+}
+
+.answer {
+	padding: 15px 5px;
+	box-sizing: border-box;
+	color: white;
+	border: 1px solid rgba(212, 212, 212, 0.05);
+	background: rgba(255, 255, 255, 0.05);
+	border-radius: 10px;
+	height: 56px;
+	font-size: 26px;
+	line-height: 21px;
+	outline: none;
+	box-shadow: none;
+	flex-grow: 1;
+	overflow: hidden;
+	width: 100%;
+	margin-bottom: 5px;
+}
