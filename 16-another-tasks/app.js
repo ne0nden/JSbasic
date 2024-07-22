@@ -1,54 +1,45 @@
 'use strict';
 
 const taskManager = {
-    toDoList: [
-        {
-            title: 'Помыть посуду',
-            description: 'Вечером я должен помыть посуду',
-            id: 1,
-            priority: 1
-        }
-    ],
-    addTask: function (title, priority, description) {
-        let nextId = 1;
-        if (this.toDoList.length > 0) {
-            let maxId = 0;
-            for (let task of this.toDoList) {
-                if (task.id > maxId) {
-                    maxId = task.id;
-                }
-            }
-            nextId = maxId + 1;
-        }
+    toDoList: [],
 
-        const newTask = {
-            title: title,
-            description: description,
-            id: nextId,
-            priority: priority
-        };
-        this.toDoList.push(newTask);
+    addTask: function (data) {
+        const nextId = this.toDoList.reduce((maxId, { id }) => id + 1 > maxId ? id + 1 : maxId, 1);
+        data.id = nextId;
+        if (!data) {
+            console.log('Данные не переданы');
+            return false;
+        }
+        if (typeof data !== 'object' || Array.isArray(data)) {
+            console.log('Переданные данные не являются объектом');
+            return false;
+        }
+        this.toDoList.push({ ...data, id: data.id });
+        return this;
     },
 
-    deleteTask: function (id) {
-        const index = this.toDoList.findIndex(task => task.id === id);
-        if (index != -1) {
-            this.toDoList.splice(index, 1);
-        } else {
-            console.log('Задача не может быть выполнена');
+    deleteTask: function (data) {
+        const task = this.toDoList.find(task => task.id === data.id);
+        if (!task) {
+            console.log('Задача с указанным ID не найдена');
+            return this;
         }
+        this.toDoList = this.toDoList.filter(f => f.id !== data.id);
+        data.id = -1;
+        return this;
     },
 
-    updateTask: function (id, newTitle, newPriority, newDescription) {
-        const index = this.toDoList.findIndex(task => task.id === id);
+
+    updateTask: function (data, newTitle, newPriority, newDescription) {
+        const index = this.toDoList.findIndex(task => task.id === data.id);
         if (index !== -1) {
-            if (newTitle !== undefined) {
+            if (newTitle) {
                 this.toDoList[index].title = newTitle;
             }
-            if (newPriority !== undefined) {
+            if (newPriority) {
                 this.toDoList[index].priority = newPriority;
             }
-            if (newDescription !== undefined) {
+            if (newDescription) {
                 this.toDoList[index].description = newDescription;
             }
         } else {
@@ -75,9 +66,31 @@ const newTask = {
     toDoList: []
 };
 
+
 const addTaskToNewTask = taskManager.addTask.bind(newTask);
 const deleteTaskFromNewTask = taskManager.deleteTask.bind(newTask);
 const updateTaskInNewTask = taskManager.updateTask.bind(newTask);
 const sortTasksInNewTask = taskManager.sortTasks.bind(newTask);
 
+const data1 = {
+    title: '123',
+    description: 'abc',
+    priority: 1
+}
+
+const data2 = {
+    title: '890',
+    description: 'bbb',
+    priority: 3
+}
+
+addTaskToNewTask(data1);
+deleteTaskFromNewTask(data1);
+addTaskToNewTask(data2);
+addTaskToNewTask(data1);
+updateTaskInNewTask(data1, '456', 5, 'aaa');
+sortTasksInNewTask('priority', true);
+
 console.log(newTask.toDoList);
+
+
