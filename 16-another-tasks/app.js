@@ -30,18 +30,10 @@ const taskManager = {
     },
 
 
-    updateTask: function (data, newTitle, newPriority, newDescription) {
+    updateTask: function (data, newData) {
         const index = this.toDoList.findIndex(task => task.id === data.id);
         if (index !== -1) {
-            if (newTitle) {
-                this.toDoList[index].title = newTitle;
-            }
-            if (newPriority) {
-                this.toDoList[index].priority = newPriority;
-            }
-            if (newDescription) {
-                this.toDoList[index].description = newDescription;
-            }
+            this.toDoList[index] = { ...data, ...newData };
         } else {
             console.log('Задача не может быть выполнена');
         }
@@ -84,11 +76,17 @@ const data2 = {
     priority: 3
 }
 
+const newData1 = {
+    title: '456',
+    description: 'aaa',
+    priority: 5
+}
+
 addTaskToNewTask(data1);
 deleteTaskFromNewTask(data1);
 addTaskToNewTask(data2);
 addTaskToNewTask(data1);
-updateTaskInNewTask(data1, '456', 5, 'aaa');
+updateTaskInNewTask(data1, newData1);
 sortTasksInNewTask('priority', true);
 
 console.log(newTask.toDoList);
