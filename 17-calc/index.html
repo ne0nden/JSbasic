@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>document</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body style="background-color: #1c1b21; text-align: center">
+  <div class="calculator">
+    <div class="inputs">
+      <input class="input input1"></input>
+      <input class="input input2"></input>
+    </div>
+    <div class="buttons">
+      <button class="button button-background buttonSum" onclick="recolorButton('buttonSum')">+</button>
+      <button class="button button-background buttonMin" onclick="recolorButton('buttonMin')">&#8722;</button>
+      <button class="button button-background buttonMultip" onclick="recolorButton('buttonMultip')">&#215;</button>
+      <button class="button button-background buttoтDivis" onclick="recolorButton('buttoтDivis')">&#247;</button>
+    </div>
+    <button class="enterButton" onclick="submitForm()">Посчитать</button>
+    <div class="answerText">Ответ:</div>
+    <div class="answer"></div>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+
+</html>
